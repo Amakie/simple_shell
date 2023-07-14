@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-#define TRUE 1 
+#define TRUE 1
 
 /* string_functions.c */
 int _putchar(char c);
