@@ -22,4 +22,9 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 
+/* memory_functions.c */
+char *_memset(char *a, char b, unsigned int n);
+void free_s(char **pp);
+void *_realloc(void *ptr, unsigned int old, unsigned int new_);
+
 #endif
