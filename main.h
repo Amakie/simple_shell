@@ -24,13 +24,13 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 
-<<<<<<< HEAD
 /* memory_functions.c */
 char *_memset(char *a, char b, unsigned int n);
 void free_s(char **pp);
 void *_realloc(void *ptr, unsigned int old, unsigned int new_);
+void free_p(void **ptr);
 
-=======
+/* main function */
 int main(int argc, char **argv);
->>>>>>> 73d8793e6fb7ce63d315cb1d248843a0d7aa3c49
+
 #endif
