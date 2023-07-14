@@ -9,6 +9,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+#define TRUE 1 
+
 /* string_functions.c */
 int _putchar(char c);
 void _puts(char *str);
@@ -22,4 +24,5 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 
+int main(int argc, char **argv);
 #endif
