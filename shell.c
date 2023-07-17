@@ -1,4 +1,5 @@
-#include "main.h"
+#include "shell.h"
+
 /**
  * main - The main function 
  * @argv: argument  vector
@@ -35,7 +36,7 @@ int main(int argc, char **argv)
 			if (stat(args[0], &sb) == -1)
 				status = _error(argv[0], command_ct, args[0]);
 			else
-				status = child(args[0], args);
+				status = _child(args[0], args);
 		}
 		else if (args == NULL)
 			status = _error(argv[0], command_ct, command);

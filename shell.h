@@ -1,15 +1,24 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdio.h>
-#include <strings.h>
-#include <stdlid.h>
-#include <stdarg.h>
-#include <sys/stat.h>
+#include <stdlib.h>
 #include <sys/wait.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdarg.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stddef.h>
 #include <sys/stat.h>
+#include <signal.h>
+#include <limits.h>
 
 #define TRUE 1
+
+extern char **environ;
 
 /* string_functions.c */
 int _putchar(char c);
