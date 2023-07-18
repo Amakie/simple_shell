@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * _putchar - ...
- * @c: ...
+ * _putchar - writes a char to stdout
+ * @c: the char to be writtten
  *
- * Return: ...
+ * Return: number of bytes written
  */
 int _putchar(char c)
 {
@@ -12,10 +12,10 @@ int _putchar(char c)
 }
 
 /**
- * _puts - ...
- * @str: ...
+ * _puts - prints a string followed by a new line
+ * @str: the string
  *
- * Return: ...
+ * Return: void
  */
 void _puts(char *str)
 {
@@ -30,10 +30,10 @@ void _puts(char *str)
 }
 
 /**
- * _strlen - ...
- * @str: ...
+ * _strlen - calculates the length of a string
+ * @str: the string
  *
- * Return: ...
+ * Return: the length calculated
  */
 int _strlen(char *str)
 {
@@ -43,14 +43,14 @@ int _strlen(char *str)
 	{
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 /**
- * _atoi - ...
- * @str: ...
+ * _atoi - converts a string of chars to an int
+ * @str: the string of chatrs to be converted
  *
- * Return: ...
+ * Return: the converted int value
  */
 int _atoi(char *str)
 {
@@ -78,10 +78,10 @@ int _atoi(char *str)
 }
 
 /**
- * _strdup - ...
- * @str: ...
+ * _strdup - duplicates a string
+ * @str: the string
  *
- * Return: ...
+ * Return: pointer to the new duplicate string or Null on failure
  */
 char *_strdup(char *str)
 {

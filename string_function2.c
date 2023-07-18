@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _strcmp - ...
- * @s1: ...
- * @s2: ...
+ * _strcmp - compares two strings
+ * @s1: string one
+ * @s2: string two
  *
- * Return: ...
+ * Return: 0 if s1 == s2, -ve if s1 < s2, +ve if s1 > s2
  */
 int _strcmp(char *s1, char *s2)
 {
@@ -22,11 +22,11 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _strcpy - ...
- * @dest: ...
- * @src: ...
+ * _strcpy - copy a string from source to destination
+ * @dest: destination to store the copied string
+ * @src: source string to be copied
  *
- * Return: ...
+ * Return: pointer to dest buffer
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -42,11 +42,11 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strcat - ...
- * @dest: ...
- * @src: ...
+ * _strcat - concatenates two strings
+ * @dest: destination to store the concatenated string
+ * @src: the source string to be appended
  *
- * Return: ...
+ * Return: a pointer to dest buffer
  */
 char *_strcat(char *dest, char *src)
 {
@@ -66,12 +66,13 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
- * _strncat - ...
- * @dest: ...
- * @src: ...
- * @n: ...
+ * _strncat - concatenates two strings
+ * (append at most n chars of source to dest)
+ * @dest: destination tom store the concat string
+ * @src: souce string to be appended
+ * @n: number of bytes to be appended from src
  *
- * Return: ...
+ * Return: pointer to dest
  */
 char *_strncat(char *dest, char *src, int n)
 {

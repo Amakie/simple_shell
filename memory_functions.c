@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _memset - ...
- * @a: ...
- * @b: ...
- * @n: ...
+ * _memset - fill memory are with a constant byte
+ * @a: pointer to the mem to be filled
+ * @b: the const byte to fill the mem area with
+ * @n: number of bytes to fill
  *
- * Return: ...
+ * Return: pointer to mem area of a
  */
 char *_memset(char *a, char b, unsigned int n)
 {
@@ -20,10 +20,10 @@ char *_memset(char *a, char b, unsigned int n)
 }
 
 /**
- * free_s - free string of strings
- * @pp:
+ * free_s - free mem aloocated for an array of pointers to strings
+ * @pp: pointer to the array op pointers
  *
- * Return: ...
+ * Return: void
  */
 void free_s(char **pp)
 {
@@ -39,12 +39,12 @@ void free_s(char **pp)
 }
 
 /**
- * _realloc - ...
- * @ptr: ...
- * @old: ...
- * @new_: ...
+ * _realloc - reallocates memory for a block of mem
+ * @ptr: pointer to the old mem block
+ * @old: size of the old mem block in bytes
+ * @new_: size of the new mem block in bytes
  *
- * Return: pointer to thr new allocated mem
+ * Return: pointer to thr new allocated mem or Null on failure
  */
 void *_realloc(void *ptr, unsigned int old, unsigned int new_)
 {
@@ -72,10 +72,10 @@ void *_realloc(void *ptr, unsigned int old, unsigned int new_)
 }
 
 /**
- * free_p - frees a pointer and null the address
- * @ptr: ...
+ * free_p - frees mem of a pointer to pointer
+ * @ptr: double pointer to be freed
  *
- * Return: ...
+ * Return: 1 on success, or 0 om failure
  */
 int free_p(void **ptr)
 {
