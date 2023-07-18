@@ -1,6 +1,17 @@
 #include "shell.h"
 
 /**
+ * prompt - prints prompt in interactive mode
+ *
+ * Return: NULL
+ */
+void prompt(void)
+{
+	if (isatty(STDIN_FILENO))
+		write(stdout, "$ ", 2);
+}
+
+/**
  * main - The main function 
  * @argv: argument  vector
  * @argc: number of arguments passed
@@ -19,8 +30,7 @@ int main(int argc, char **argv)
 
 	while (TRUE)
 	{
-		if (isatty(STDIN_FILENO))
-			write(stdout, "$ ", 2);
+		prompt();
 		r = getline(&command, &length, stdin);
 		if (r == -1)
 		{
@@ -34,12 +44,12 @@ int main(int argc, char **argv)
 		if (args != NULL && args[0] != NULL)
 		{
 			if (stat(args[0], &sb) == -1)
-				status = _error(argv[0], command_ct, args[0]);
+				status = _error();
 			else
 				status = _child(args[0], args);
 		}
 		else if (args == NULL)
-			status = _error(argv[0], command_ct, command);
+			status = _error();
 		if (args != NULL)
 		{
 			for(; args[i] != NULL; i++)

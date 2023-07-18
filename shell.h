@@ -23,9 +23,9 @@ extern char **environ;
 /* string_functions.c */
 int _putchar(char c);
 void _puts(char *str);
-void _strlen(char *str);
+int _strlen(char *str);
 int _atoi(char *str);
-int *_strdup(char *str);
+char *_strdup(char *str);
 
 /* string_functions */
 char *_strcpy(char *dest, char *src);
@@ -40,6 +40,8 @@ void *_realloc(void *ptr, unsigned int old, unsigned int new_);
 void free_p(void **ptr);
 
 /* main function */
+void prompt(void);
+int _error(void);
 int main(int argc, char **argv);
 
 #endif
