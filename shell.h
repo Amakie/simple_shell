@@ -44,4 +44,8 @@ void prompt(void);
 int _error(void);
 int main(int argc, char **argv);
 
+/* more_functions.c */
+char **_tokenizer(char *command, char *delim);
+int _exit(char *command, int status, char **args);
+
 #endif
