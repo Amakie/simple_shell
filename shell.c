@@ -36,7 +36,7 @@ int main(__attribute((unused))int argc, char **argv)
 			exit(0);
 		}
 		args = _tokenizer(command, delim);
-		_exit(command, status, args);
+		_exitfunc(command, status, args);
 		if (_getenv(command, args) == 0)
 			continue;
 		if (args != NULL && args[0] != NULL)

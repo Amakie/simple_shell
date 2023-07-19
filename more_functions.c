@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * _exit - frees allocated mem and return the exit status of a command
+ * _exitfunc - frees allocated mem and return the exit status of a command
  * @command: pointer to the command string allocated by getline
  * @status: integer repping exit stsatus of the command
  * @args: pointer to an array of strings repping thr command args
  *
  * Return: status of the command
  */
-void _exit(char *command, int status, char **args)
+void _exitfunc(char *command, int status, char **args)
 {
 	int i = 0;
 	if (command[0] == 'e' && command[1] == 'x' && command[2] == 'i' && command[3] == 't')
@@ -19,7 +19,7 @@ void _exit(char *command, int status, char **args)
 			status = _atoi(args[1]);
 			if (status <= 0)
 				write(STDERR_FILENO, ": Illegal number: ", 18);
-			status = (status <= 0) ? : status;
+			status = (status <= 0) ? 2 : status;
 			while (args[i] != NULL)
 			{
 				free(args[i]);

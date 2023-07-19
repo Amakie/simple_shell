@@ -33,14 +33,18 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 
+/* memory functions */
+void *_realloc(void *ptr, unsigned int old, unsigned int new_);
 
 /* main function */
 void prompt(void);
 int _error(void);
 int main(__attribute((unused))int argc, char **argv);
+int _child(char *token, char **args);
+int _getenv(char *command, char **args);
 
 /* more_functions.c */
 char **_tokenizer(char *command, char *delim);
-int _exit(char *command, int status, char **args);
+void _exitfunc(char *command, int status, char **args);
 
 #endif
