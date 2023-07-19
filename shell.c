@@ -8,7 +8,7 @@
 void prompt(void)
 {
 	if (isatty(STDIN_FILENO))
-		write(stdout, "$ ", 2);
+		write(STDOUT_FILENO, "$ ", 2);
 }
 
 /**
@@ -17,7 +17,7 @@ void prompt(void)
  * @argc: number of arguments passed
  * Return: 0 for success, -1 for failure
  */
-int main(int argc, char **argv)
+int main(__attribute((unused))int argc, char **argv)
 {
 	struct stat sb;
 	int i = 0, status = 0, command_ct = 1;
@@ -25,8 +25,6 @@ int main(int argc, char **argv)
 	ssize_t r = 0;
 	char **args = NULL;
 	char *command, *delim = " \t\n\r";
-
-	void(argc);
 
 	while (TRUE)
 	{

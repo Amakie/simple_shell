@@ -8,11 +8,32 @@
  *
  * Return: status of the command
  */
-int _exit(char *command, int status, char **args)
+void _exit(char *command, int status, char **args)
 {
-	free_p((void **)&command);
-	free_s(args);
-	return (status);
+	int i = 0;
+	if (command[0] == 'e' && command[1] == 'x' && command[2] == 'i' && command[3] == 't')
+	{
+		free(command);
+		if (args != NULL && args[1] != NULL)
+		{
+			status = _atoi(args[1]);
+			if (status <= 0)
+				write(STDERR_FILENO, ": Illegal number: ", 18);
+			status = (status <= 0) ? : status;
+			while (args[i] != NULL)
+			{
+				free(args[i]);
+				i++;
+			}
+			free(args);
+		}
+		else
+		{
+			free(args[0]);
+			free(args);
+		}
+		exit(status);
+	}
 }
 
 /**
