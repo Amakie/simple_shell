@@ -39,12 +39,14 @@ void *_realloc(void *ptr, unsigned int old, unsigned int new_);
 /* main function */
 void prompt(void);
 int _error(void);
-int main(__attribute((unused))int argc, char **argv);
+int main(void);
 int _child(char *token, char **args);
 int _getenv(char *command, char **args);
+char *_getpath(char *command);
 
 /* more_functions.c */
 char **_tokenizer(char *command, char *delim);
 void _exitfunc(char *command, int status, char **args);
+int is_exit(char *command);
 
 #endif

@@ -17,7 +17,7 @@ void prompt(void)
  * @argc: number of arguments passed
  * Return: 0 for success, -1 for failure
  */
-int main(__attribute((unused))int argc, char **argv)
+int main(void)
 {
 	struct stat sb;
 	int i = 0, status = 0, command_ct = 1;

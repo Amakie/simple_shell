@@ -11,7 +11,7 @@
 void _exitfunc(char *command, int status, char **args)
 {
 	int i = 0;
-	if (command[0] == 'e' && command[1] == 'x' && command[2] == 'i' && command[3] == 't')
+	if (is_exit(command))
 	{
 		free(command);
 		if (args != NULL && args[1] != NULL)
@@ -45,38 +45,41 @@ void _exitfunc(char *command, int status, char **args)
  */
 char **_tokenizer(char *command, char *delim)
 {
-	int bufsize = 64;
-	int position = 0;
-	char **tokens;
-	char *token;
+	int i = 0;
+	char *token = NULL, *temp = NULL;
 
-	tokens = malloc(bufsize * sizeof(char *));
-
-	if (!tokens)
+	char **store_args = malloc(sizeof(char *) * 2048);
+	if (!store_args)
 	{
-		perror("Memory alllocation error");
+		perror("Memory allocation error");
 		exit(EXIT_FAILURE);
 	}
 
 	token = strtok(command, delim);
 	while (token != NULL)
 	{
-		tokens[position] = _strdup(token);
-		position++;
-
-		if (position >= bufsize)
+		if (i == 0 && token[0] != '.' && !_strcmp(token, "exit") == 0)
 		{
-			bufsize += 64;
-			tokens = (char **)_realloc(tokens, bufsize * sizeof(char *));
-
-			if (!tokens)
+			if (token[0] != '/')
 			{
-				perror("Memory allocation error");
-				exit(EXIT_FAILURE);
+				temp = _getpath(token);
+				if (temp == NULL)
+				{
+					free(store_args);
+					return (NULL);
+				}
+				store_args[0] = temp;
 			}
+			else
+			{
+				store_args[i] = malloc(strlen(token) + 1);
+				_strcpy(store_args[i], token);
+			}
+			i++;
+			token = strtok(NULL, delim);
 		}
-		token = strtok(NULL, delim);
 	}
-	tokens[position] = NULL;
-	return (tokens);
+	store_args[i] = NULL;
+
+	return (store_args);
 }
