@@ -12,7 +12,7 @@ void prompt(void)
 }
 
 /**
- * main - The main function 
+ * main - The main function
  * @argv: argument  vector
  * @argc: number of arguments passed
  * Return: 0 for success, -1 for failure
@@ -36,11 +36,11 @@ int main(void)
 			exit(0);
 		}
 		args = _tokenizer(command, delim);
-		
+
 		_exitfunc(command, status, args);
 		/*
-		if (_getenv(command, args) == 0)
-			continue;
+		*if (_getenv(command, args) == 0)
+		*	continue;
 		*/
 		if (args != NULL && args[0] != NULL)
 		{
@@ -57,7 +57,7 @@ int main(void)
 			status = _error();
 		if (args != NULL)
 		{
-			for(; args[i] != NULL; i++)
+			for (; args[i] != NULL; i++)
 				free(args[i]);
 			free(args);
 		}
