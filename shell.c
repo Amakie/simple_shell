@@ -36,16 +36,23 @@ int main(void)
 			exit(0);
 		}
 		args = _tokenizer(command, delim);
+		
 		_exitfunc(command, status, args);
+		/*
 		if (_getenv(command, args) == 0)
 			continue;
+		*/
 		if (args != NULL && args[0] != NULL)
 		{
+
 			if (stat(args[0], &sb) == -1)
 				status = _error();
 			else
+			{
 				status = _child(args[0], args);
+			}
 		}
+
 		else if (args == NULL)
 			status = _error();
 		if (args != NULL)

@@ -11,7 +11,7 @@
 void _exitfunc(char *command, int status, char **args)
 {
 	int i = 0;
-	if (is_exit(command))
+	if (is_exit(command) == 0)
 	{
 		free(command);
 		if (args != NULL && args[1] != NULL)
@@ -58,9 +58,8 @@ char **_tokenizer(char *command, char *delim)
 	token = strtok(command, delim);
 	while (token != NULL)
 	{
-		if (i == 0 && token[0] != '.' && !_strcmp(token, "exit") == 0)
-		{
-			if (token[0] != '/')
+		
+			if ( i == 0 && token[0] != '/')
 			{
 				temp = _getpath(token);
 				if (temp == NULL)
@@ -75,11 +74,11 @@ char **_tokenizer(char *command, char *delim)
 				store_args[i] = malloc(strlen(token) + 1);
 				_strcpy(store_args[i], token);
 			}
-			i++;
 			token = strtok(NULL, delim);
-		}
+		
+		i++;
 	}
-	store_args[i] = NULL;
 
+	store_args[i] = NULL;
 	return (store_args);
 }
