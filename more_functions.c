@@ -11,6 +11,7 @@
 void _exitfunc(char *command, int status, char **args)
 {
 	int i = 0;
+
 	if (is_exit(command) == 0)
 	{
 		free(command);
@@ -47,8 +48,8 @@ char **_tokenizer(char *command, char *delim)
 {
 	int i = 0;
 	char *token = NULL, *temp = NULL;
-
 	char **store_args = malloc(sizeof(char *) * 2048);
+
 	if (!store_args)
 	{
 		perror("Memory allocation error");
@@ -58,24 +59,23 @@ char **_tokenizer(char *command, char *delim)
 	token = strtok(command, delim);
 	while (token != NULL)
 	{
-		
-			if ( i == 0 && token[0] != '/')
+
+		if (i == 0 && token[0] != '/')
+		{
+			temp = _getpath(token);
+			if (temp == NULL)
 			{
-				temp = _getpath(token);
-				if (temp == NULL)
-				{
-					free(store_args);
-					return (NULL);
-				}
-				store_args[0] = temp;
+				free(store_args);
+				return (NULL);
 			}
-			else
-			{
-				store_args[i] = malloc(strlen(token) + 1);
-				_strcpy(store_args[i], token);
-			}
-			token = strtok(NULL, delim);
-		
+			store_args[0] = temp;
+		}
+		else
+		{
+			store_args[i] = malloc(_strlen(token) + 1);
+			_strcpy(store_args[i], token);
+		}
+		token = strtok(NULL, delim);
 		i++;
 	}
 

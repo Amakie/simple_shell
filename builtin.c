@@ -14,12 +14,14 @@ int _error(void)
 
 /**
  * is_exit - Is the command an exit command
+ * @command: ...
  *
  * Return: 0 if it spells exit
  */
 int is_exit(char *command)
 {
-	if (command[0] == 'e' && command[1] == 'x' && command[2] == 'i' && command[3] == 't')
+	if (command[0] == 'e' && command[1] == 'x'
+		&& command[2] == 'i' && command[3] == 't')
 	{
 		return (0);
 	}
