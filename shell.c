@@ -17,12 +17,12 @@ void prompt(void)
  * @argc: number of arguments passed
  * Return: 0 for success, -1 for failure
  */
-int main(void)
+int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 {
 	struct stat sb;
-	int i = 0, status = 0, command_ct = 1;
 	size_t length = 0;
-	ssize_t r = 0;
+        ssize_t r = 0;
+	int i = 0, status = 0, command_ct = 1;
 	char **args = NULL;
 	char *command, *delim = " \t\n\r";
 
@@ -30,11 +30,12 @@ int main(void)
 	{
 		prompt();
 		r = getline(&command, &length, stdin);
-		if (r == -1)
-		{
-			free(command);
-			exit(0);
-		}
+                if (r == -1)
+                {
+                        free(command);
+                        write(STDOUT_FILENO, "\n", 1);
+                        exit(0);
+                }
 		args = _tokenizer(command, delim);
 
 		_exitfunc(command, status, args);
@@ -47,16 +48,13 @@ int main(void)
 			if (stat(args[0], &sb) == -1)
 				status = _error();
 			else
-			{
 				status = _child(args[0], args);
-			}
 		}
-
 		else if (args == NULL)
 			status = _error();
 		if (args != NULL)
 		{
-			for (; args[i] != NULL; i++)
+			for(; args[i] != NULL; i++)
 				free(args[i]);
 			free(args);
 		}

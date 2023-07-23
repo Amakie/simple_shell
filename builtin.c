@@ -5,7 +5,7 @@
  *
  * Return: 127
  */
-int _error(void)
+int _error()
 {
 	write(STDERR_FILENO, "not found\n", 10);
 	return (127);
@@ -28,3 +28,4 @@ int is_exit(char *command)
 	else
 		return (1);
 }
+
