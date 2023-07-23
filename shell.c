@@ -44,7 +44,6 @@ int main(void)
 		*/
 		if (args != NULL && args[0] != NULL)
 		{
-
 			if (stat(args[0], &sb) == -1)
 				status = _error();
 			else
