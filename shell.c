@@ -24,7 +24,7 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
         ssize_t r = 0;
 	int i = 0, status = 0, command_ct = 1;
 	char **args = NULL;
-	char *command, *delim = " \t\n\r";
+	char *command = NULL, *delim = " \t\n\r";
 
 	while (TRUE)
 	{
@@ -33,7 +33,6 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
                 if (r == -1)
                 {
                         free(command);
-                        write(STDOUT_FILENO, "\n", 1);
                         exit(0);
                 }
 		args = _tokenizer(command, delim);

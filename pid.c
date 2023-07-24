@@ -20,7 +20,6 @@ int _child(char *token, char **args)
 	}
 	if (pid == 0)
 	{
-		printf("%s\n", token);
 
 		if (execve(token, args, env) == -1)
 		{
