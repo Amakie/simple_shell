@@ -48,7 +48,7 @@ char *_getpath(char *command)
  * _getenv - prints current environment
  * @args: parameter
  * @command: another parameter
- * Return: 0 if successful
+ * Return: 0 if successful, otherwise 1
  */
 int _getenv(char *command, char **args)
 {
@@ -68,5 +68,5 @@ int _getenv(char *command, char **args)
 		}
 		return (0);
 	}
-	return (0);
+	return (1);
 }
