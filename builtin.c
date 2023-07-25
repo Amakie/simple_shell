@@ -5,7 +5,7 @@
  *
  * Return: 127
  */
-int _error()
+int _error(void)
 {
 	write(STDERR_FILENO, "not found\n", 10);
 	return (127);
@@ -26,6 +26,35 @@ int is_exit(char *command)
 		return (0);
 	}
 	else
-		return (1);
+		return (-1);
+}
+
+#include "shell.h"
+
+/**
+ * ch_dir - handles current working directory
+ * @args: arguments
+ * Return: Nothing
+ */
+void ch_dir(char **args)
+{
+	char *dir = args[1];
+	int result;
+
+	if (dir == NULL)
+	{
+		dir = getenv("HOME");
+		if (dir == NULL)
+		{
+			_puts("cd: No HOME directory found\n");
+			return;
+		}
+	}
+
+	result = chdir(dir);
+	if (result == -1)
+	{
+		perror("cd");
+	}
 }
 

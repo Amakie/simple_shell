@@ -21,7 +21,7 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 {
 	struct stat sb;
 	size_t length = 0;
-        ssize_t r = 0;
+	ssize_t r = 0;
 	int i = 0, status = 0, command_ct = 1;
 	char **args = NULL;
 	char *command = NULL, *delim = " \t\n\r";
@@ -30,18 +30,13 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 	{
 		prompt();
 		r = getline(&command, &length, stdin);
-                if (r == -1)
-                {
-                        free(command);
-                        exit(0);
-                }
+		if (r == -1)
+		{
+			free(command);
+			exit(0);
+		}
 		args = _tokenizer(command, delim);
-
 		_exitfunc(command, status, args);
-		/*
-		*if (_getenv(command, args) == 0)
-		*	continue;
-		*/
 		if (args != NULL && args[0] != NULL)
 		{
 			if (stat(args[0], &sb) == -1)
@@ -53,7 +48,7 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 			status = _error();
 		if (args != NULL)
 		{
-			for(; args[i] != NULL; i++)
+			for (; args[i] != NULL; i++)
 				free(args[i]);
 			free(args);
 		}

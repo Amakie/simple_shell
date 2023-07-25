@@ -38,7 +38,7 @@ void *_realloc(void *ptr, unsigned int old, unsigned int new_);
 
 /* main function */
 void prompt(void);
-int _error();
+int _error(void);
 int main(__attribute((unused))int argc, __attribute((unused))char **argv);
 int _child(char *token, char **args);
 int _getenv(char *command, char **args);
