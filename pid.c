@@ -11,9 +11,6 @@ int _child(char *token, char **args)
 	int pid_status = 0;
 	pid_t pid;
 
-	if (check_builtin(args))
-		return (pid_status);
-
 	pid = fork();
 
 	if (pid == -1)

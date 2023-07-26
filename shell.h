@@ -50,9 +50,4 @@ char **_tokenizer(char *command, char *delim);
 void _exitfunc(char *command, int status, char **args);
 int is_exit(char *command);
 
-/* builtin */
-int _setenv(char **args);
-int _unsetenv(char **args);
-int check_builtin(char **args);
-void ch_dir(char **args);
 #endif

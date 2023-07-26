@@ -21,7 +21,7 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 {
 	struct stat sb;
 	size_t length = 0;
-	ssize_t r = 0;
+	ssize_t read = 0;
 	int i = 0, status = 0, command_ct = 1;
 	char **args = NULL;
 	char *command = NULL, *delim = " \t\n\r";
@@ -29,8 +29,8 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 	while (TRUE)
 	{
 		prompt();
-		r = getline(&command, &length, stdin);
-		if (r == -1)
+		read = getline(&command, &length, stdin);
+		if (read == -1)
 		{
 			free(command);
 			exit(0);
