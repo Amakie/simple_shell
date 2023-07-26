@@ -44,7 +44,6 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv);
 int _child(char *token, char **args);
 int _getenv(char *command, char **args);
 char *_getpath(char *command);
-int print_env(void);
 
 /* more_functions.c */
 char **_tokenizer(char *command, char *delim);

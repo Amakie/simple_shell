@@ -87,8 +87,6 @@ int check_builtin(char **args)
 {
 	if (!args[0])
 		return (0);
-	else if (!_strcmp(args[0], "env"))
-		print_env();
 	else if (!_strcmp(args[0], "setenv"))
 		_setenv(args);
 	else if (!_strcmp(args[0], "unsetenv"))

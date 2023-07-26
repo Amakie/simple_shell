@@ -20,7 +20,7 @@ int _setenv(char **args)
 
 	if (setenv(name, value, 1) != 0)
 	{
-		_printerror("setenv");
+		_puts("setenv");
 		return (-1);
 	}
 	return (0);
@@ -45,27 +45,7 @@ int _unsetenv(char **args)
 
 	if (unsetenv(name) != 0)
 	{
-		_printerror("unsetenv");
+		_puts("unsetenv");
 	}
-	return (0);
-}
-
-
-#include "shell.h"
-
-/**
- * print_env - Prints environment varaibles
- * Return: 0
- */
-int print_env(void)
-{
-	int i;
-
-	for (i = 0; environ[i]; i++)
-	{
-		_puts(environ[i]);
-		_putchar('\n');
-	}
-
 	return (0);
 }
