@@ -20,7 +20,7 @@ void _exitfunc(char *command, int status, char **args)
 			status = _atoi(args[1]);
 			if (status < 0)
 				write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
-			status = (status < 0) ? 2 : status;
+			status = (status <= 0) ? 2 : status;
 			while (args[i] != NULL)
 			{
 				free(args[i]);
