@@ -18,7 +18,7 @@ int _error(void)
  *
  * Return: 0 if it spells exit
  */
-int is_exit(char *command)
+/*int is_exit(char *command)
 {
 	if (command[0] == 'e' && command[1] == 'x'
 		&& command[2] == 'i' && command[3] == 't')
@@ -28,3 +28,4 @@ int is_exit(char *command)
 	else
 		return (-1);
 }
+*/
