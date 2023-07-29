@@ -11,8 +11,6 @@ int _child(char *token, char **args)
 	int pid_status = 0;
 	pid_t pid;
 
-	if (builtin_chk(args))
-		return (pid_status);
 
 	pid = fork();
 
@@ -22,9 +20,7 @@ int _child(char *token, char **args)
 		return (1);
 	}
 	if (pid == 0)
-	{
-
-		if (execve(token, args, env) == -1)
+	
 		{
 			perror("execute failed");
 			return (1);

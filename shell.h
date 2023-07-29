@@ -17,6 +17,8 @@
 #include <limits.h>
 
 #define TRUE 1
+#define PATH_MAX_LENGTH 4096
+#define PATH_SEPARATOR ":"
 
 extern char **environ;
 
@@ -36,6 +38,8 @@ char *_strncat(char *dest, char *src, int n);
 
 /* memory functions */
 void *_realloc(void *ptr, unsigned int old, unsigned int new_);
+char *_memset(char *a, char b, unsigned int n);
+void free_s(char **pp);
 
 /* main function */
 void prompt(void);
@@ -48,10 +52,12 @@ char *_getpath(char *command);
 int _setenv(char **args);
 int _unsetenv(char **args);
 int builtin_chk(char **args);
+char *find_location(char *command);
 
 /* more_functions.c */
 void _exitfunc(char *command, int status, char **args);
 int is_exit(char *command);
 char **tokenizer(char *command, char *delim);
+
 
 #endif

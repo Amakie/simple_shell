@@ -70,3 +70,4 @@ int _getenv(char *command, char **args)
 	}
 	return (1);
 }
+
