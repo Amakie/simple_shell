@@ -37,6 +37,25 @@ void _exitfunc(char *command, int status, char **args)
 	}
 }
 
+
+/**
+ * _puterror - Prints an error message to the standard error stream
+ * @err: The error message to print
+ * Return: NULl
+ */
+void _printerror(char *error)
+{
+	size_t len;
+	ssize_t num_written;
+
+	len = _strlen(error);
+	num_written = write(2, error, len);
+	if (num_written == -1)
+	{
+		perror("write");
+	}
+}
+
 /**
  * _tokenizer - splits a command string into an array of tokens
  * @command: pointer to the command string

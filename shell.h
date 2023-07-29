@@ -23,6 +23,7 @@ extern char **environ;
 /* string_functions.c */
 int _putchar(char c);
 void _puts(char *str);
+void _printerror(char *error);
 int _strlen(char *str);
 int _atoi(char *str);
 char *_strdup(char *str);
@@ -44,7 +45,8 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv);
 int _child(char *token, char **args);
 int _getenv(char *command, char **args);
 char *_getpath(char *command);
-int ch_dir(char **args, __attribute((unused))char **front);
+int _setenv(char **args);
+int _unsetenv(char **args);
 
 /* more_functions.c */
 void _exitfunc(char *command, int status, char **args);
