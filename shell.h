@@ -44,6 +44,7 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv);
 int _child(char *token, char **args);
 int _getenv(char *command, char **args);
 char *_getpath(char *command);
+int ch_dir(char **args, __attribute((unused))char **front);
 
 /* more_functions.c */
 void _exitfunc(char *command, int status, char **args);
