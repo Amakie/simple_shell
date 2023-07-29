@@ -46,8 +46,8 @@ int _getenv(char *command, char **args);
 char *_getpath(char *command);
 
 /* more_functions.c */
-char **_tokenizer(char *command, char *delim);
 void _exitfunc(char *command, int status, char **args);
 int is_exit(char *command);
+char **tokenizer(char *command, char *delim);
 
 #endif

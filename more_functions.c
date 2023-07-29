@@ -43,7 +43,7 @@ void _exitfunc(char *command, int status, char **args)
  * @delim: pointer to a string containing the delimeters
  *
  * Return: pointer to an array of string (tokens)
- */
+ *
 char **_tokenizer(char *command, char *delim)
 {
 	int i = 0;
@@ -82,3 +82,4 @@ char **_tokenizer(char *command, char *delim)
 	store_args[i] = NULL;
 	return (store_args);
 }
+*/

@@ -35,7 +35,7 @@ int main(__attribute((unused))int argc, __attribute((unused))char **argv)
 			free(command);
 			exit(0);
 		}
-		args = _tokenizer(command, delim);
+		args = tokenizer(command, delim);
 		_exitfunc(command, status, args);
 		if (_getenv(command, args) == 0)
 			continue;
