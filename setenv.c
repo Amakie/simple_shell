@@ -49,3 +49,26 @@ int _unsetenv(char **args)
 	}
 	return (0);
 }
+
+
+
+
+
+/**
+ * builtin_chk - checks if the command is a builtin
+ * @args: arguments
+ *
+ * Return: 1 if command is a builtin
+ */
+int builtin_chk(char **args)
+{
+	if (!args[0])
+		return (0);
+	else if (!_strcmp(args[0], "setenv"))
+		_setenv(args);
+	else if (!_strcmp(args[0], "unsetenv"))
+		_unsetenv(args);
+	else 
+		return (0);
+	return (1);
+}

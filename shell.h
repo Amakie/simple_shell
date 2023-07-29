@@ -47,6 +47,7 @@ int _getenv(char *command, char **args);
 char *_getpath(char *command);
 int _setenv(char **args);
 int _unsetenv(char **args);
+int builtin_chk(char **args);
 
 /* more_functions.c */
 void _exitfunc(char *command, int status, char **args);
